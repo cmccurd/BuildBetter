@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > BuildBetter
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > This is an app to support a Magic The Gathering commander player.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > This app will support players in making thier decks with explicit tags designed to make a cohesive deck. Players will be warned when they are going over the limit in specific catagories. 
 
 ## Problem ##
-  > Describe the problem your product solves.
-
+  > Most casual commander players don't know what direction to take when developing a cohesive deck. This can be a problem because they will tend to focus on cards that enhance their commander over staple card catagories needed in every commander deck. EX. Player doesn't put enough card draw in his deck, another player board wipes. Now the first player has no way to get cards and replenish their board they are essentially out of the game because they built an unbalanced deck.
+  
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > By giving general guidelines to the players it will ensure the deck has consistancy while playing. Consistancy with card draw and always having creatures, board-wipes, or instant speed removal will keep the player active in the game. This will hopefully support a player like the guard rails in a bowling alley.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > Our goal is to get you the tips needed to play Better Magic.
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > If you have a deck already, import it and our lightwieght app will save the deck and allow users to start catagorizing.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > I was always losing to my friends when we played commander, but ever since I started using the guidelines BuildBetter gave me I have been consitantly placing first or second.
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > After you make your deck try out our playtesting sim.
