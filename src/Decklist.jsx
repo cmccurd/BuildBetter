@@ -118,11 +118,12 @@ class Decklist extends React.Component {
   }
 
   changeCategory(prev, cat, card, index) {
-    var {tagCount, categories} = this.state;
-    var temp = tagCount;
+    var {tagCount, deckList} = this.state;
+    var temp = {...tagCount};
     temp[cat] += 1;
     temp[prev] -= 1;
-    var tags = categories;
+    console.log(temp, tagCount)
+    var tags = {...deckList};
     tags[cat].push(card);
     if (index === 0) {
       tags[prev] = tags[prev].slice(index + 1);
