@@ -1,0 +1,106 @@
+import React from 'react';
+import FindCards from './components/FindCards.jsx';
+import Tables from './components/Tables.jsx';
+const axios = require('axios');
+
+class Decklist extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      deckName: '',
+      deckList: [],
+      commander: '',
+      clickedCard: '',
+      showOptions: false,
+      count: 0,
+      tagCount: {
+        untagged: 0,
+        ramp: 0,
+        cardDraw: 0,
+        singleTargetRemoval: 0,
+        boardWipes: 0,
+        lands: 0,
+        standalone: 0,
+        enhancer: 0,
+        enabler: 0
+      }
+    };
+    this.addCard = this.addCard.bind(this);
+    this.options = this.options.bind(this);
+    this.show = this.show.bind(this);
+  }
+
+  addCard(e) {
+    var { deckList, count } = this.state;
+    var card = e.target.innerText;
+    card = card.replaceAll(' ', '+')
+    axios.get(`/exact/${card}`)
+      .then((obj) => {
+        var tempArray = deckList;
+        var tempObj = this.state.tagCount;
+        var found = false;
+        for (var i = 0; i < tempArray.length; i++) {
+          if (tempArray[i].name === obj.data.name) {
+            tempArray[i].count++;
+            tempObj[tempArray[i].tag] = tempObj[tempArray[i].tag] + 1;
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          obj.data.count = 1;
+          obj.data.tag = 'untagged';
+          tempObj.untagged = tempObj.untagged + 1;
+          tempArray.push(obj.data);
+        }
+        this.setState({
+          deckList: tempArray,
+          tagCount: tempObj,
+          count: count + 1,
+        });
+      });
+  }
+
+
+  options(e, input) {
+    this.setState({
+      [e]: input,
+    });
+    this.show();
+  }
+
+  changeState(state, value) {
+    this.setState({
+      [state]: value
+    });
+  }
+
+  show() {
+    this.setState({
+      showOptions: !this.state.showOptions,
+    });
+  }
+
+  render() {
+    const { deckName, deckList, commander, showOptions, clickedCard, count, tagCount } = this.state;
+    return (
+      <div className="deckContainer" >
+        <button onClick={() => this.props.changeRender('isImport')}></button>
+
+        <FindCards addCard={this.addCard} />
+        <div className="commander">
+          {commander !== '' ? <img className="media" src={commander} alt="commander" /> : null}
+        </div>
+        <div className="deckview">
+          {/* <Sort/> */}
+          <Tables deckList={deckList} showOptions={showOptions} clickedCard={clickedCard} options={this.options} tagCount={tagCount} />
+        </div>
+        <footer className="footer">
+          <span >Cards: {count}</span>
+        </footer>
+      </div>
+    );
+  }
+}
+
+export default Decklist;

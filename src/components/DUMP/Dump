@@ -1,0 +1,14 @@
+{deckList.map((card, index) => {
+                tagCount[card.tag] += 1;
+                if (card.tag === tag) {
+                  return (
+                    <tbody>
+                      <tr>
+                        <td key={index} >
+                          {card.count}x {card.name}
+                          {/* {showOptions && clickedCard === card.name ? <div className="options">
+                          <span style={{ display: 'block' }} onClick={() => options('commander', card["image_uris"].normal)}>make commander</span>
+                        </div> : null} */}
+                        </td>
+                      </tr>
+                    </tbody>
