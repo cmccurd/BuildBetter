@@ -36,9 +36,10 @@ class Decklist extends React.Component {
       },
       count: 0,
       commander: {},
-      currentImg: 'https://c1.scryfall.com/file/scryfall-cards/normal/front/3/a/3a1d0dad-18a8-489e-ac11-08f64b72fda4.jpg?1592673365',
+      currentImg: 'https://c1.scryfall.com/file/scryfall-cards/large/front/a/b/abe8eefe-c9f8-43f7-a348-8afee8b0ec68.jpg?1595719605',
       playtest: false,
       importCards: false,
+      options: false,
     };
 
     this.getCard = this.getCard.bind(this);
@@ -48,6 +49,8 @@ class Decklist extends React.Component {
     this.getCommander = this.getCommander.bind(this);
     this.getHover = this.getHover.bind(this);
     this.changeCategory = this.changeCategory.bind(this);
+    this.removeCard = this.removeCard.bind(this);
+    this.showOptions = this.showOptions.bind(this);
   }
 
   getCard(e) {
@@ -118,17 +121,34 @@ class Decklist extends React.Component {
   }
 
   changeCategory(prev, cat, card, index) {
-    var {tagCount, deckList} = this.state;
-    var temp = {...tagCount};
+    var { tagCount, deckList } = this.state;
+    var temp = { ...tagCount };
     temp[cat] += 1;
     temp[prev] -= 1;
-    console.log(temp, tagCount)
-    var tags = {...deckList};
+    var tags = { ...deckList };
+    console.log(tags);
     tags[cat].push(card);
     if (index === 0) {
       tags[prev] = tags[prev].slice(index + 1);
     } else {
       tags[prev] = tags[prev].slice(0, index).concat(tags[prev].slice(index + 1));
+    }
+    console.log(tags);
+    this.setState({
+      tagCount: temp,
+      deckList: tags,
+    });
+  }
+
+  removeCard(tag, index) {
+    var { tagCount, deckList } = this.state;
+    var temp = { ...tagCount };
+    temp[tag] -= 1;
+    var tags = { ...deckList };
+    if (index === 0) {
+      tags[tag] = tags[tag].slice(index + 1);
+    } else {
+      tags[tag] = tags[tag].slice(0, index).concat(tags[tag].slice(index + 1));
     }
     this.setState({
       tagCount: temp,
@@ -136,8 +156,12 @@ class Decklist extends React.Component {
     });
   }
 
+  showOptions() {
+    this.setState({ options: !this.state.options })
+  }
+
   render() {
-    var { deckList, count, playtest, importCards, currentImg, tagCount } = this.state;
+    var { deckList, count, playtest, importCards, currentImg, tagCount, options } = this.state;
     if (playtest) {
       return
     } else if (importCards) {
@@ -145,6 +169,11 @@ class Decklist extends React.Component {
     } else {
       return (
         <div className="col-2-5">
+          <div className="header" >
+            <span>Login</span>
+            <div id="firebaseui-auth-container"></div>
+            <div id="loader">Loading...</div>
+          </div>
           <div className="deckContainer">
             <Title />
             <div className="row-2">
@@ -156,10 +185,15 @@ class Decklist extends React.Component {
             </div>
             <div className="row-4">
               <Picture currentImg={currentImg} />
-              <DeckView deckList={deckList} getHover={this.getHover} getCommander={this.getCommander} tagCount={tagCount} changeCategory={this.changeCategory} />
+              <DeckView deckList={deckList} getHover={this.getHover} getCommander={this.getCommander} tagCount={tagCount} changeCategory={this.changeCategory} removeCard={this.removeCard} options={options} showOptions={this.showOptions} />
             </div>
           </div>
-          <div className="deckStats"></div>
+          <div className="deckStats">
+
+          </div>
+          <footer className="footer">
+            <span >Cards: {count}</span>
+          </footer>
         </div>
       );
     }
