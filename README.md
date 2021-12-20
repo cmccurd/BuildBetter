@@ -1,12 +1,14 @@
 # BuildBetter
 ### Table of Contents
-1. [General Info](#�-General-Info)
+1. [General Info](#-General-Info)
 2. [Demo](#-Demo)
-3. [Technologies](#�-Technologies)
-4. [Installation](#�-Installation)
+3. [Technologies](#-Technologies)
+4. [Installation](#-Installation)
 
 
 ### General Info
+
+#### Summary
 This app will support players in making thier decks with explicit tags designed to make a cohesive deck. Players will be warned when they are going over the limit in specific catagories. 
 
 #### Problem
