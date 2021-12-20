@@ -4,6 +4,7 @@
 2. [Demo](#-Demo)
 3. [Technologies](#-Technologies)
 4. [Installation](#-Installation)
+5. [System Architecture](#-System-Architecture)
 
 
 ### General Info
@@ -44,3 +45,5 @@ $ npm start
 Set up a config.js with the following: 
 
 * TOKEN (from GitHub):  -->
+
+### :file_folder: System Architecture
