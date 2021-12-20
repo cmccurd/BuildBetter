@@ -1,3 +1,13 @@
+# BuildBetter
+### Table of Contents
+1. [General Info](#🌴-General-Info)
+2. [Demo](#✨-Demo)
+3. [Technologies](#🧪-Technologies)
+4. [Installation](#🚀-Installation)
+
+
+### General Info
+This app will support players in making thier decks with explicit tags designed to make a cohesive deck. Players will be warned when they are going over the limit in specific catagories. 
 
 ## Problem ##
   > Most casual commander players don't know what direction to take when developing a cohesive deck. This can be a problem because they will tend to focus on cards that enhance their commander over staple card catagories needed in every commander deck. EX. Player doesn't put enough card draw in his deck, another player board wipes. Now the first player has no way to get cards and replenish their board they are essentially out of the game because they built an unbalanced deck.
@@ -16,17 +26,6 @@
 
 ## Closing and Call to Action ##
   > After you make your deck try out our playtesting sim.
-
-# BuildBetter
-### Table of Contents
-1. [General Info](#🌴-General-Info)
-2. [Demo](#✨-Demo)
-3. [Technologies](#🧪-Technologies)
-4. [Installation](#🚀-Installation)
-
-
-### General Info
-This app will support players in making thier decks with explicit tags designed to make a cohesive deck. Players will be warned when they are going over the limit in specific catagories. 
 
 ### ✨ Demo
 #### Sign-up/Login
