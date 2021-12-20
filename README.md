@@ -4,7 +4,7 @@
 2. [Demo](#-Demo)
 3. [Technologies](#-Technologies)
 4. [Installation](#-Installation)
-5. [System Architecture](#-System-Architecture)
+5. [System Architecture](#file_folder-system-architecture
 
 
 ### General Info
